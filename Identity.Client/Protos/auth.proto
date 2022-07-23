@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option csharp_namespace = "Identity.Client";
+
+package auth;
+
+service Auth {
+    rpc GetDomainUsers (Empty) returns (UserList);
+    rpc FindDomainUsers (String) returns (UserList);
+    rpc GetUser (String) returns (User);
+    rpc GetUserByGuid (String) returns (User);
+}
+
+message Empty {}
+
+message String {
+    string value = 1;
+}
+
+message User {
+    string guid = 1;
+    string displayName = 2;
+    string distinguishedName = 3;
+    string emailAddress = 4;
+    string givenName = 5;
+    string samAccountName = 6;
+    string surname = 7;
+    string userPrincipalName = 8;
+    string voiceTelephoneNumber = 9;
+    bool enabled = 10;
+}
+
+message UserList {
+    repeated User Users = 1;
+}

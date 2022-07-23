@@ -1,0 +1,60 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "run-identity",
+            "command": "dotnet",
+            "type": "shell",
+            "problemMatcher": "$msCompile",
+            "options": {
+                "cwd": "${workspaceFolder}/Identity.Server/"
+            },
+            "args": [
+                "run"
+            ],
+            "presentation": {
+                "panel": "dedicated"
+            }
+        },
+        {
+            "label": "run-cli",
+            "command": "dotnet",
+            "type": "shell",
+            "problemMatcher": "$msCompile",
+            "options": {
+                "cwd": "${workspaceFolder}/App.Cli/"
+            },
+            "args": [
+                "run"
+            ]
+        },
+        {
+            "label": "run-api",
+            "command": "dotnet",
+            "type": "shell",
+            "problemMatcher": "$msCompile",
+            "options": {
+                "cwd": "${workspaceFolder}/App.Api/"
+            },
+            "args": [
+                "watch",
+                "run"
+            ],
+            "presentation": {
+                "panel": "dedicated"
+            }
+        }
+    ]
+}
